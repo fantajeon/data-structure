@@ -22,10 +22,10 @@ public class InsertTest {
 		System.out.println(String.format("total count : %d", loop));
 	}
 	
-	public static int sort(int dataSet[]){
+	public static int sort(int dataSet[]) {
 		int value = 0;
 		
-		for( int count = 1; count < dataSet.length ; count++ ) {
+		for( int count = 1; count < dataSet.length ; count++ ){
 			value = dataSet[count];
 			for( int idx = count - 1; idx >= 0; idx-- ){
 				loop++;
