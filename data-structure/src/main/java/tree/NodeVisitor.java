@@ -1,9 +1,10 @@
-package demo;
+package tree;
+
 
 
 public class NodeVisitor {
 
-	public static void preorderPrintTree(Node node) {
+	public static void preorderPrintTree(StringNode node) {
 		
 		if( node == null ){
 			return;
@@ -15,7 +16,7 @@ public class NodeVisitor {
 		
 	}
 	
-	public static void inorderPrintTree(Node node) {
+	public static void inorderPrintTree(StringNode node) {
 		
 		if( node == null ){
 			return;
@@ -27,7 +28,7 @@ public class NodeVisitor {
 		
 	}
 	
-	public static void postPrintTree(Node node){
+	public static void postPrintTree(StringNode node){
 		
 		if( node == null ){
 			return;

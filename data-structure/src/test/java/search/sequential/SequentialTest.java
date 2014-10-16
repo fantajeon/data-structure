@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import demo.LinkedNode;
+import tree.LinkedNode;
 
 public class SequentialTest {
 	

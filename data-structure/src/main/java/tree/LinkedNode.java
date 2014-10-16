@@ -1,4 +1,4 @@
-package demo;
+package tree;
 
 public class LinkedNode {
 	

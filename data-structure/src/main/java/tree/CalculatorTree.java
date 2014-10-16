@@ -1,4 +1,4 @@
-package demo;
+package tree;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CalculatorTree {
 	
-	public static Node buildExpressionTree(Iterator<String> iterator, Node node) {
+	public static StringNode buildExpressionTree(Iterator<String> iterator, StringNode node) {
 		
 		if( !iterator.hasNext() ){
 			return node;
@@ -16,8 +16,8 @@ public class CalculatorTree {
 		String str = iterator.next();
 		
 		if( isExpression(str) ){
-			node.setLeft(buildExpressionTree(iterator, new Node()));
-			node.setRight(buildExpressionTree(iterator, new Node()));
+			node.setLeft(buildExpressionTree(iterator, new StringNode()));
+			node.setRight(buildExpressionTree(iterator, new StringNode()));
 		}
 		
 		node.setValue(str);
@@ -49,7 +49,7 @@ public class CalculatorTree {
 		return 0;
 	}	
 	
-	public static long calculate(Node node) {
+	public static long calculate(StringNode node) {
 		
 		long left = 0;
 		long right = 0;
@@ -68,7 +68,7 @@ public class CalculatorTree {
 		List<String> list = Arrays.asList("1 2 * 7 8 * +".split(" "));
 		Collections.reverse(list);
 		System.out.println(list);
-		Node root = new Node();
+		StringNode root = new StringNode();
 		CalculatorTree.buildExpressionTree(list.iterator(), root);
 		long calculate = CalculatorTree.calculate(root);
 		System.out.println(calculate);
