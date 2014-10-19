@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CalculatorTree {
 	
-	public static StringNode buildExpressionTree(Iterator<String> iterator, StringNode node) {
+	public static BinaryTreeNode<String> buildExpressionTree(Iterator<String> iterator, BinaryTreeNode<String> node) {
 		
 		if( !iterator.hasNext() ){
 			return node;
@@ -16,8 +16,8 @@ public class CalculatorTree {
 		String str = iterator.next();
 		
 		if( isExpression(str) ){
-			node.setLeft(buildExpressionTree(iterator, new StringNode()));
-			node.setRight(buildExpressionTree(iterator, new StringNode()));
+			node.setLeft(buildExpressionTree(iterator, new BinaryTreeNode<String>()));
+			node.setRight(buildExpressionTree(iterator, new BinaryTreeNode<String>()));
 		}
 		
 		node.setValue(str);
@@ -49,14 +49,14 @@ public class CalculatorTree {
 		return 0;
 	}	
 	
-	public static long calculate(StringNode node) {
+	public static long calculate(BinaryTreeNode<String> node) {
 		
 		long left = 0;
 		long right = 0;
 		
 		if( isExpression(node.getValue()) ) {
-			left = calculate(node.getLeft());
-			right = calculate(node.getRight());
+			left = calculate((BinaryTreeNode<String>) node.getLeft());
+			right = calculate((BinaryTreeNode<String>) node.getRight());
 			return calculateExpression(node.getValue(), left, right);
 		}
 		
@@ -68,7 +68,7 @@ public class CalculatorTree {
 		List<String> list = Arrays.asList("1 2 * 7 8 * +".split(" "));
 		Collections.reverse(list);
 		System.out.println(list);
-		StringNode root = new StringNode();
+		BinaryTreeNode<String> root = new BinaryTreeNode<String>();
 		CalculatorTree.buildExpressionTree(list.iterator(), root);
 		long calculate = CalculatorTree.calculate(root);
 		System.out.println(calculate);

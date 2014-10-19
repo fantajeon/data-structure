@@ -4,7 +4,7 @@ package tree;
 
 public class NodeVisitor {
 
-	public static void preorderPrintTree(StringNode node) {
+	public static <T> void preorderPrintTree(BinaryTreeNode<T> node) {
 		
 		if( node == null ){
 			return;
@@ -16,7 +16,7 @@ public class NodeVisitor {
 		
 	}
 	
-	public static void inorderPrintTree(StringNode node) {
+	public static <T> void inorderPrintTree(BinaryTreeNode<T> node) {
 		
 		if( node == null ){
 			return;
@@ -28,7 +28,7 @@ public class NodeVisitor {
 		
 	}
 	
-	public static void postPrintTree(StringNode node){
+	public static <T> void postPrintTree(BinaryTreeNode<T> node){
 		
 		if( node == null ){
 			return;
